@@ -71,20 +71,20 @@ while true
     % 5
     uj = u(:,idxJ);
     if all(uj < eps)
-        error('Inf');
+        error('Inf_0');
     end
     % 6
     xb = Sb./uj;
     idxI = 0;
     minx = max(xb);
     for i = 1:N
-        if 0 < xb(i) && xb(i) < minx
+        if 0 < xb(i) && xb(i) <= minx
             idxI = i;
             minx = xb(i);
         end
     end
     if idxI == 0
-        error('Inf');
+        error('Inf_1');
     end
     % 7
     E = eye(N);

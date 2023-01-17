@@ -102,9 +102,9 @@ end
 xZ = zeros(Nx, 1);
 for i = 1:Nx
     p = S(:, N+i);
-    if length(p(p<eps))==N-1 && length(p(p==1))==1
-        p = find(p==1);
-        xZ(p) = S(p, end);
+    if length(p(p<eps))==N-1 && length(p(abs(p-1)<eps))==1
+        p = find(abs(p-1)<eps);
+        xZ(i) = S(p, end);
     end
 end
 for i = 1:Nx
